@@ -281,7 +281,8 @@ module Mailjet
 
     def update_attributes(attribute_hash = {}, options = {})
       self.attributes = attribute_hash
-      save(options)
+      opts = self.class.change_resource_path(options)
+      save(opts)
     end
 
     def delete(call)
